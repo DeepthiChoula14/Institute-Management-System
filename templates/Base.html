@@ -1,0 +1,30 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Student Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS ONLY (optional) -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- Your CSS -->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+    {% include 'Navbar.html' %}
+
+  <div class="container-fluid page-container">
+
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+</body>
+</html>

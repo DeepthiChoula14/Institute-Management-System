@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>{{ action }} Employee</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <table style="border-collapse: separate; border-spacing: 0 15px;">
+            <tr>
+                <td><label>Employee Name: </label></td>
+                <td><input type="text" name="username" value="{{ employee.username|default:'' }}" required></td>
+            </tr>
+            <tr>
+                <td><label>Email: </label></td>
+                <td><input type="email" name="email" value="{{ employee.email|default:'' }}" required></td>
+            </tr>
+           <tr>
+                <td><label>Password:</label></td>
+                <td><input type="password" name="password" required></td>
+            </tr>
+            <tr>
+                <td><label>Confirm Password:</label></td>
+                <td><input type="password" name="cpassword" required></td>
+            </tr>
+            <tr>
+                <td><label>Role:</label></td>
+                <td>
+                    <select name="role">
+                        <option>--select role--</option>
+                        <option value="admin">Admin</option>
+                        <option value="hr">Hr</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    <button type="submit">{{ action }} Employee</button>
+                    {% if messages %}
+    {% for message in messages %}
+        <h5 style="color:{% if message.tags == 'success' %}green{% elif message.tags == 'error' %}red{% endif %};">
+            {{ message }}
+        </h5>
+    {% endfor %}
+{% endif %}
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+{% endblock %}

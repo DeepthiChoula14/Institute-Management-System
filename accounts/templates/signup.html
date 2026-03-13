@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+
+    <style>
+        *{
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            margin:0;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background: linear-gradient(135deg, #e0f7fa, #f1f8ff);
+
+        }
+
+        /* card */
+        .card{
+            background: linear-gradient(135deg, #e0f7fa, #f1f8ff);
+
+            width:330px;
+            padding:22px;
+            border-radius:12px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.25);
+        }
+
+        /* heading */
+        .card h2{
+            text-align:center;
+            margin-bottom:18px;
+        }
+
+        /* label */
+        label{
+            font-size:14px;
+            display:block;
+            margin-bottom:4px;
+        }
+
+        /* input */
+        input{
+            width:100%;
+            padding:9px;
+            border-radius:6px;
+            border:1px solid #ccc;
+            margin-bottom:12px;
+        }
+
+        input:focus{
+            outline:none;
+            border-color:#43cea2;
+        }
+
+        /* button */
+        button{
+            width:100%;
+            padding:10px;
+            border:none;
+            border-radius:6px;
+            background:#43cea2;
+            color:white;
+            font-size:15px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#2bbd8e;
+        }
+
+        /* messages */
+        .error{
+            color:red;
+            font-size:13px;
+            text-align:center;
+            margin-top:6px;
+        }
+
+        /* bottom link */
+        .bottom{
+            text-align:center;
+            margin-top:12px;
+            font-size:14px;
+        }
+
+        .bottom a{
+            color:#185a9d;
+            font-weight:bold;
+            text-decoration:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2>Signup</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>User Name</label>
+        <input type="text" name="txtname" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="pwd" required>
+
+        <label>Confirm Password</label>
+        <input type="password" name="cpwd" required>
+
+        <button type="submit">Sign Up</button>
+
+        {% for message in messages %}
+            <div class="error">{{ message }}</div>
+        {% endfor %}
+    </form>
+
+    <div class="bottom">
+        Existing user? <a href="{% url 'login' %}">Login</a>
+    </div>
+
+</div>
+
+</body>
+</html>

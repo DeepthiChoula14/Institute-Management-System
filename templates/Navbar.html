@@ -1,0 +1,43 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">{{ request.user }}</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="{% url 'dashboard' %}">Home</a></li>
+      <li><a href="{% url 'mystudents' %}">My_Students</a></li>
+      <li><a href="{% url 'addstudents' %}">New_Students</a></li>
+      {% if request.user.is_superuser %}
+      <li><a href="{% url 'myemployees' %}">My_Employees</a></li>
+      <li><a href="{% url 'addemployee' %}">New_employees</a></li>
+      {% endif %}
+<!--      <li><a href="#">LogOut</a></li>-->
+     <form method="post" action="{% url 'logout' %}" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit"
+        onclick="return confirm('Are you sure you want to logout?')"
+        style="
+            background:none;
+            border:none;
+            color:white;
+            cursor:pointer;
+            padding:0;
+            margin:0;
+            font-size:14px;">
+        Logout
+    </button>
+</form>
+
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+

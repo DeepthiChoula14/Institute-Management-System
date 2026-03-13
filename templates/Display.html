@@ -1,0 +1,79 @@
+{% extends 'Base.html' %}
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>Email</th>
+        <th>EDUCATION</th>
+        <th>COURSE</th>
+        <th>ADMISSION_DATE</th>
+        <th>PAID_FEE</th>
+        <th>TOTAL_FEE</th>
+
+        {% if request.user.is_superuser %}
+        <th>UPDATE</th>
+        <th>DELETE</th>
+        {% endif %}
+      </tr>
+    </thead>
+
+    <tbody>
+    {% for student in student_data %}
+      <tr>
+        <td>{{ student.id }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.education }}</td>
+        <td>{{ student.course }}</td>
+        <td>{{ student.admission_date }}</td>
+        <td>{{ student.paid_fee }}</td>
+        <td>{{ student.total_fee }}</td>
+
+        {% if request.user.is_superuser %}
+
+        <!-- UPDATE -->
+        <td>
+            <a href="{% url 'updatestudent' student.id %}"
+            onclick="return confirm('Do you want to update {{ student.name }} details?')"
+       style="
+            background:#6c757d;
+            color:white;
+            padding:5px 10px;
+            border-radius:4px;
+            text-decoration:none;
+            font-size:13px;
+            cursor:pointer;">
+        Update
+
+            </a>
+        </td>
+
+        <!-- DELETE (POST + confirm popup) -->
+        <td>
+            <form action="{% url 'deletestudent' student.id %}" method="post" class="delete-form">
+                {% csrf_token %}
+                <button type="submit"
+                        class="delete-btn"
+                        onclick="return confirm('Are you sure you want to delete this {{ student.name }} ')"  style="
+                background:#e74c3c;
+                color:white;
+                border:none;
+                padding:5px 10px;
+                border-radius:4px;
+                cursor:pointer;
+                font-size:13px;">
+                    Delete
+                </button>
+            </form>
+        </td>
+
+        {% endif %}
+      </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

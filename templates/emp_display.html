@@ -1,0 +1,53 @@
+{% extends 'Base.html' %}
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>Email</th>
+
+          <th>UPDATE</th>
+        <th>DELETE</th>
+
+      </tr>
+    </thead>
+    <tbody>
+    {% for employee in employee_data %}
+      <tr>
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.username }}</td>
+        <td>{{ employee.email }}</td>
+
+          <td><a href="{% url 'updateemployee' employee.id %}"
+          onclick="return confirm('Do you want to update {{ employee.username }} details?')"
+       style="
+            background:#6c757d;
+            color:white;
+            padding:5px 10px;
+            border-radius:4px;
+            text-decoration:none;
+            font-size:13px;
+            cursor:pointer;">
+        Update</a></td>
+            <td>
+    <a href="{% url 'deleteemployee' employee.id %}"
+       onclick="return confirm('Are you sure you want to delete {{ employee.username }} ?')"
+       style="
+            background:#e74c3c;
+            color:white;
+            padding:5px 10px;
+            border-radius:4px;
+            text-decoration:none;
+            font-size:13px;">
+        Delete
+    </a>
+</td>
+
+
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

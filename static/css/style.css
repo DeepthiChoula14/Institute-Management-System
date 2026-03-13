@@ -1,0 +1,171 @@
+/* ===== Body and Container ===== */
+body {
+    background-color: #f0f4f8; /* Light gray-blue background */
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    background: linear-gradient(135deg, #e0f7fa, #f1f8ff);
+    width: 280px; /* reduced from 330px */
+    padding: 15px; /* reduced from 22px */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+
+/* ===== Heading ===== */
+h2 {
+    text-align: center;
+    color: #333;
+    font-family: "Times New Roman", Times, serif; /* changed font */
+
+}
+
+/* ===== Navbar ===== */
+/* ===== Navbar ===== */
+.navbar {
+    background-color: #222;
+    font-family: Arial, sans-serif;
+
+    display: flex;           /* use flex layout */
+    justify-content: center; /* center links horizontally */
+    align-items: center;     /* vertically center links */
+}
+
+.navbar a {
+    display: block;          /* keep links block-level for padding */
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+    /* removed float: left; */
+}
+
+.navbar a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+
+/* ===== Active Link ===== */
+.navbar a.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* ===== Table for My Students / My Employees ===== */
+table {
+    width: 75%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+
+
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #000000;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+
+
+/* Style the Add Student button */
+button {
+    padding: 10px 20px;
+    background-color: #28a745; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+/* Hover effect */
+button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Glow effect */
+}
+
+
+
+
+
+/* ===== Dashboard Text Styling ===== */
+
+/* Container for welcome and description */
+.home-content {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Welcome Message */
+.home-content h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #0d3b66; /* Dark blue */
+    margin-bottom: 10px;
+}
+
+/* Description Paragraph */
+.home-content p {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    color: #333; /* Dark gray */
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Action Buttons */
+.home-actions .btn {
+    font-family: 'Verdana', Geneva, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 25px;
+    margin: 5px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.home-actions .btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Table Text */
+table th {
+    font-family: 'Tahoma', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+table td {
+    font-family: 'Verdana', sans-serif;
+    font-size: 15px;
+    color: #444;
+}

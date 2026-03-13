@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 100vh;
+
+        background: linear-gradient(135deg, #e0f7fa, #f1f8ff);
+
+    }
+
+    /* Card */
+    .card {
+        background: linear-gradient(135deg, #e0f7fa, #f1f8ff);
+        width: 360px;
+        padding: 40px 35px;   /* ⭐ bigger height */
+        border-radius: 12px;
+        box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+        text-align: center;   /* ⭐ center content */
+    }
+
+    /* Heading */
+    .card h2 {
+        margin-bottom: 25px;
+        font-weight: 600;
+    }
+
+    /* Form groups */
+    .form-group {
+        text-align: left;
+        margin-bottom: 18px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #43cea2;
+    }
+
+    /* Button */
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background: #43cea2;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #2bbd8e;
+    }
+
+    /* Signup text inside card */
+    .signup {
+        margin-top: 18px;
+        font-size: 14px;
+    }
+
+    .signup a {
+        color: #43cea2;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    /* Error */
+    .error {
+        color: red;
+        margin-bottom: 12px;
+        font-size: 14px;
+    }
+</style>
+
+
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2>Login</h2>
+
+    {% if form.errors %}
+        <div class="error">Invalid username or password</div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Username</label>
+            {{ form.username }}
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            {{ form.password }}
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="signup">
+        New user? <a href="{% url 'signup' %}">Sign Up</a>
+    </div>
+
+</div>
+
+</body>
+</html>
